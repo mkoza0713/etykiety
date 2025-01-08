@@ -16,7 +16,7 @@
                 <input type="text" name="operator_id" id="operator_id" class="input_element">
             </div>
             <div>
-                <label for="machine_id" class="input_element" >Maszyna:</label>
+                <label for="machine_id" class="input_element">Maszyna:</label>
                 <select name="" id="machine_id" class="input_element_2">
                     <option value="" selected></option>
                     <option value="KOMAX 333">KOMAX 333</option>
@@ -31,13 +31,13 @@
                 </select>
             </div>
             <div>
-                <label for="data_wydruku" class="input_element" >Data:</label>
+                <label for="data_wydruku" class="input_element">Data:</label>
                 <p class="input_element" id="data_wydruku"></p>
             </div>
         </div>
         <div class="column_2">
             <div id="qrcode" class="qr_code">
-        
+
             </div>
         </div>
 
@@ -59,10 +59,10 @@
     var button = document.getElementById('print_button');
     button.addEventListener('click', funkcja_click);
 
-    var operator_id ="brak";
-    var machine_select="brak";
+    var operator_id = "brak";
+    var machine_select = "brak";
     var string_to_print = print_date + "  " + operator_id + "  " + machine_select;
-    generateQRCode(string_to_print);   
+    generateQRCode(string_to_print);
 
     function funkcja_click() {  //funckcja po kliknieciu 
 
@@ -73,29 +73,29 @@
         var checksum = 1; //zaczynam z true
         var message_to_operator = "";
         console.log(operator_id.length);
-        if(operator_id=="" || operator_id.length!=6 || isNaN(operator_id)){
-            checksum=0;
-            message_to_operator=" Id operatora niepoprawne";
+        if (operator_id == "" || operator_id.length != 6 || isNaN(operator_id)) {
+            checksum = 0;
+            message_to_operator = " Id operatora niepoprawne";
         }
-        if(machine_select==""){
-            checksum=0;
-            message_to_operator="Nie wybrano maszyny";
+        if (machine_select == "") {
+            checksum = 0;
+            message_to_operator = "Nie wybrano maszyny";
         }
-        if(checksum){
-            generateQRCode(string_to_print);        
+        if (checksum) {
+            generateQRCode(string_to_print);
             window.print();
         }
-        else{
+        else {
             alert(message_to_operator);
         }
 
     }
-// Funkcja do generowania kodu QR 
+    // Funkcja do generowania kodu QR 
 
-function generateQRCode(text) { 
-    var qrCodeContainer = document.getElementById("qrcode"); 
-    qrCodeContainer.innerHTML = ""; // Wyczyszczenie poprzedniego kodu QR 
-    var qrcode = new QRCode(qrCodeContainer, { text: text, width: 128, height: 128 }); 
-    } 
-    
+    function generateQRCode(text) {
+        var qrCodeContainer = document.getElementById("qrcode");
+        qrCodeContainer.innerHTML = ""; // Wyczyszczenie poprzedniego kodu QR 
+        var qrcode = new QRCode(qrCodeContainer, { text: text, width: 128, height: 128 });
+    }
+
 </script>
