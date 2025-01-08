@@ -1,0 +1,41 @@
+body{
+    max-width: 98mm;
+    height: 48mm;
+    border: solid black;
+    display: flex;;
+}
+
+.qr_code{
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_body{
+    position: relative; 
+    width: 200px; 
+    height: 30px; 
+    top: 60mm; 
+    left: -60mm;
+}
+.label_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.column_1{
+    width: 60mm;
+}
+.input_element{
+    margin-left: 2mm;
+    width: 50mm;
+}
+.input_element_2{
+    margin-left: 2mm;
+    width: 52mm;
+}
+p{
+    margin:0;
+}

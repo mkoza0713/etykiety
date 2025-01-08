@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="label_body">
+        <div class="column_1">
+            <div>
+                <label for="operator_id" class="input_element">ID operatora:</label>
+                <input type="text" name="operator_id" id="operator_id" class="input_element">
+            </div>
+            <div>
+                <label for="machine_id" class="input_element" >Maszyna:</label>
+                <select name="" id="machine_id" class="input_element_2">
+                    <option value="KOMAX 333">KOMAX 333</option>
+                    <option value="KOMAX 35">KOMAX 355</option>
+                    <option value="KOMAX 565">KOMAX 565</option>
+                    <option value="SAMEC">SAMEC</option>
+                    <option value="ECO STRI">ECO STRIP</option>
+                    <option value="EW55-G">EW55-G</option>
+                    <option value="EW55-E">EW55-E</option>
+                    <option value="POWER STRIP STARY">POWER STRIP STARY</option>
+                    <option value="POWER STRIP NOWY">POWER STRIP NOWY</option>
+                </select>
+            </div>
+            <div>
+                <label for="data_wydruku" class="input_element" >Data:</label>
+                <p class="input_element" id="data_wydruku"></p>
+            </div>
+        </div>
+        <div class="column_2">
+            <div id="qrcode" class="qr_code">
+        
+            </div>
+        </div>
+
+    </div>
+    <div class="button_body">
+        <button id="print_button">DRUKUJ ETYKIETE</button>
+    </div>
+
+</body>
+
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+    var now = new Date();
+    var print_date = now.toLocaleString();
+    document.getElementById("data_wydruku").innerText = print_date;
+
+    var button = document.getElementById('print_button');
+    button.addEventListener('click', funkcja_click);
+
+    var operator_id ="brak";
+    var machine_select="brak";
+    var string_to_print = print_date + "  " + operator_id + "  " + machine_select;
+    generateQRCode(string_to_print);   
+
+    function funkcja_click() {  //funckcja po kliknieciu 
+        operator_id = document.getElementById("operator_id").value;
+        machine_select = document.getElementById("machine_id").value;
+        string_to_print = print_date + "  " + operator_id + "  " + machine_select;
+
+        generateQRCode(string_to_print);        
+        window.print();
+    }
+// Funkcja do generowania kodu QR 
+
+function generateQRCode(text) { 
+    var qrCodeContainer = document.getElementById("qrcode"); 
+    qrCodeContainer.innerHTML = ""; // Wyczyszczenie poprzedniego kodu QR 
+    var qrcode = new QRCode(qrCodeContainer, { text: text, width: 128, height: 128 }); 
+    } 
+    
+</script>

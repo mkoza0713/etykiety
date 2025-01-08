@@ -1,0 +1,2 @@
+# Etykieta_maszyny
+ 
