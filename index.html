@@ -19,18 +19,18 @@
                 <label for="machine_id" class="input_element">Maszyna:</label>
                 <select name="" id="machine_id" class="input_element_2">
                     <option value="" selected></option>
-                    <option value="70-002-001-00 - Komax Alpha 355">70-002-001-00 - Komax Alpha 355</option>
-                    <option value="70-002-002-00 - Komax Gamma 333 PC-B">70-002-002-00 - Komax Gamma 333 PC-B</option>
-                    <option value="70-002-003-01 - Komax Alpha 565">70-002-003-01 - Komax Alpha 565</option>
-                    <option value="70-009-003-00 - SAMEC TS12">70-009-003-00 - SAMEC TS12</option>
-                    <option value="70-009-000-00 - Schleuniger EcoStrip 9300">70-009-000-00 - Schleuniger EcoStrip 9300</option>
-                    <option value="70-009-007-00 - Automat do Cięcia przewodów 16- 150mm2 EW-05E">70-009-007-00 - Automat do Cięcia przewodów 16- 150mm2 EW-05E</option>
-                    <option value="70-009-008-00 - Automat do Cięcia i zacisku przewodów EW-22G">70-009-008-00 - Automat do Cięcia i zacisku przewodów EW-22G</option>
-                    <option value="70-009-001-00 - Schleuniger PowerStrip 9500">70-009-001-00 - Schleuniger PowerStrip 9500</option>
-                    <option value="70-009-012-01 - Schleuniger PowerStrip 9580MR">70-009-012-01 - Schleuniger PowerStrip 9580MR</option>
-                    <option value="70-009-011-01 - Schleuniger Mega Strip 9680MR">70-009-011-01 - Schleuniger Mega Strip 9680MR</option>
-                    <option value="70-009-006-00 - EW-22F Cięcie i cynowanie przewodów">70-009-006-00 - EW-22F Cięcie i cynowanie przewodów</option>
-                    <option value="70-009-005-00 - Gilotyna JQ-6100 E">70-009-005-00 - Gilotyna JQ-6100 E</option>
+                    <option value="70-002-001-00 - Komax Alpha 355">Komax Alpha 355</option>
+                    <option value="70-002-002-00 - Komax Gamma 333 PC-B">Komax Gamma 333 PC-B</option>
+                    <option value="70-002-003-01 - Komax Alpha 565">Komax Alpha 565</option>
+                    <option value="70-009-003-00 - SAMEC TS12">SAMEC TS12</option>
+                    <option value="70-009-000-00 - Schleuniger EcoStrip 9300">Schleuniger EcoStrip 9300</option>
+                    <option value="70-009-007-00 - Automat do Cięcia przewodów 16- 150mm2 EW-05E">Automat do Cięcia przewodów 16- 150mm2 EW-05E</option>
+                    <option value="70-009-008-00 - Automat do Cięcia i zacisku przewodów EW-22G">Automat do Cięcia i zacisku przewodów EW-22G</option>
+                    <option value="70-009-001-00 - Schleuniger PowerStrip 9500">Schleuniger PowerStrip 9500</option>
+                    <option value="70-009-012-01 - Schleuniger PowerStrip 9580MR">Schleuniger PowerStrip 9580MR</option>
+                    <option value="70-009-011-01 - Schleuniger Mega Strip 9680MR">Schleuniger Mega Strip 9680MR</option>
+                    <option value="70-009-006-00 - EW-22F Cięcie i cynowanie przewodów">EW-22F Cięcie i cynowanie przewodów</option>
+                    <option value="70-009-005-00 - Gilotyna JQ-6100 E">Gilotyna JQ-6100 E</option>
                 </select>
             </div>
             <div>
@@ -45,9 +45,9 @@
         </div>
 
     </div>
-    <div class="button_body">
+    <!-- <div class="button_body">
         <button id="print_button">DRUKUJ ETYKIETE</button>
-    </div>
+    </div> -->
 
 </body>
 
@@ -59,19 +59,21 @@
     var print_date = now.toLocaleString();
     document.getElementById("data_wydruku").innerText = print_date;
 
-    var button = document.getElementById('print_button');
-    button.addEventListener('click', funkcja_click);
+    //var button = document.getElementById('print_button');
+    var button_2 = document.getElementById('qrcode');
+    //button.addEventListener('click', funkcja_click);
+    button_2.addEventListener('click', funkcja_click);
 
     var operator_id = "brak";
     var machine_select = "brak";
-    var string_to_print = print_date + "  " + operator_id + "  " + machine_select;
+    var string_to_print = machine_select + "  " + operator_id + "  " + print_date;
     generateQRCode(string_to_print);
 
     function funkcja_click() {  //funckcja po kliknieciu 
 
         operator_id = document.getElementById("operator_id").value;
         machine_select = document.getElementById("machine_id").value;
-        string_to_print = print_date + "  " + operator_id + "  " + machine_select;
+        string_to_print = machine_select + "  " + operator_id + "  " + print_date;
 
         var checksum = 1; //zaczynam z true
         var message_to_operator = "";
