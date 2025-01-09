@@ -36,6 +36,10 @@ body{
 .input_element_2{
     margin-left: 2mm;
     width: 52mm;
+    height: 50px;
+    display: flex;
+    
+  flex-wrap: wrap;
 }
 p{
     margin:0;
