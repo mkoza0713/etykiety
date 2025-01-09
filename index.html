@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etykieta ZŁOM</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -20,16 +21,16 @@
                 <select name="" id="machine_id" class="input_element_2">
                     <option value="" selected></option>
                     <option value="70-002-001-00 - Komax Alpha 355">Komax Alpha 355</option>
-                    <option value="70-002-002-00 - Komax Gamma 333 PC-B">Komax Gamma 333 PC-B</option>
+                    <option value="70-002-002-00 - Komax Gamma 333">Komax Gamma 333</option>
                     <option value="70-002-003-01 - Komax Alpha 565">Komax Alpha 565</option>
                     <option value="70-009-003-00 - SAMEC TS12">SAMEC TS12</option>
+                    <option value="70-009-007-00 - EW-05E cięcie przew. 16-150mm2">EW-05E cięcie przew. 16-150mm2</option>
+                    <option value="70-009-008-00 - EW-22G ciecie, zacisk przew.">EW-22G ciecie, zacisk przew.</option>
+                    <option value="70-009-006-00 - EW-22F cięcie, cyn przew.">EW-22F cięcie, cyn przew.</option>
                     <option value="70-009-000-00 - Schleuniger EcoStrip 9300">Schleuniger EcoStrip 9300</option>
-                    <option value="70-009-007-00 - Automat do Cięcia przewodów 16- 150mm2 EW-05E">Automat do Cięcia przewodów 16- 150mm2 EW-05E</option>
-                    <option value="70-009-008-00 - Automat do Cięcia i zacisku przewodów EW-22G">Automat do Cięcia i zacisku przewodów EW-22G</option>
                     <option value="70-009-001-00 - Schleuniger PowerStrip 9500">Schleuniger PowerStrip 9500</option>
                     <option value="70-009-012-01 - Schleuniger PowerStrip 9580MR">Schleuniger PowerStrip 9580MR</option>
                     <option value="70-009-011-01 - Schleuniger Mega Strip 9680MR">Schleuniger Mega Strip 9680MR</option>
-                    <option value="70-009-006-00 - EW-22F Cięcie i cynowanie przewodów">EW-22F Cięcie i cynowanie przewodów</option>
                     <option value="70-009-005-00 - Gilotyna JQ-6100 E">Gilotyna JQ-6100 E</option>
                 </select>
             </div>
@@ -66,14 +67,14 @@
 
     var operator_id = "brak";
     var machine_select = "brak";
-    var string_to_print = machine_select + "  " + operator_id + "  " + print_date;
+    var string_to_print = machine_select + '\t' + operator_id + '\t' + print_date;
     generateQRCode(string_to_print);
 
     function funkcja_click() {  //funckcja po kliknieciu 
 
         operator_id = document.getElementById("operator_id").value;
         machine_select = document.getElementById("machine_id").value;
-        string_to_print = machine_select + "  " + operator_id + "  " + print_date;
+        string_to_print = machine_select + '\t' + operator_id + '\t' + print_date;
 
         var checksum = 1; //zaczynam z true
         var message_to_operator = "";
